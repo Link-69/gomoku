@@ -1,0 +1,18 @@
+Initialize engine version: 4.6.0b20 (a3ecf55f1347)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7400M Series (ID=0x6760)
+    Vendor:   ATI
+    VRAM:     1015 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\colin_r\rendus\gomoku\Gomoku\Gomoku_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\colin_r\rendus\gomoku\Gomoku\Gomoku_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\colin_r\rendus\gomoku\Gomoku\Gomoku_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\colin_r\rendus\gomoku\Gomoku\Gomoku_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\colin_r\rendus\gomoku\Gomoku\Gomoku_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\colin_r\rendus\gomoku\Gomoku\Gomoku_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.234 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
