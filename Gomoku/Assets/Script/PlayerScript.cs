@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour {
 			{
 				id = id * -1;
 				if (id == -1)
-					TextWhoPlay.text = "Computer Turn";
+					TextWhoPlay.text = "Player Two Turn";
 				else if (id == 1)
 					TextWhoPlay.text = "Player One Turn";
 				newPion.gameObject.GetComponent<PionScript> ().idPlayer = id;
