@@ -141,7 +141,7 @@ public class ArbitreScript : MonoBehaviour
 		return false;
 	}
 	
-	void VerifEaten(int x, int y, int id)
+	public void VerifEaten(int x, int y, int id)
 	{
 		int iHaveEat = 0;
 
@@ -275,7 +275,7 @@ public class ArbitreScript : MonoBehaviour
 	/*
 	** Vérifie le 5 cassable et les 10 pions mangés dès qu'un joueur à jouer la frame d'après (normalement)
 	*/
-	void CheckVictory(int x, int y, int id)
+	public void CheckVictory(int x, int y, int id)
 	{
 		if (nbEatPlayer1 == 10 || nbEatPlayer2 == 10)
 		{

@@ -11,6 +11,7 @@ public class AIScript : MonoBehaviour {
 	public	Text			TextWhoPlay;
 	public	Vector3			position;
 	public  int[][] 		tab;
+    
 
 	void Start ()
 	{
@@ -36,7 +37,8 @@ public class AIScript : MonoBehaviour {
 
 	void IAmaker()
 	{
-		int i, j = -1;
+        int i = -1;
+        int j = -1;
 
 		//parcours du tableau
 		tab = arbitre.gameObject.GetComponent<ArbitreScript> ().tab;
@@ -74,12 +76,21 @@ public class AIScript : MonoBehaviour {
 	{
 		// check 5 de suite
 		// check manger 10
+        var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
+        if (get_arbitre.nbEatPlayer2 == 8)
+        {
+            get_arbitre.VerifEaten(j, i, -1);
+            if (get_arbitre.nbEatPlayer2 == 10)
+                return true;
+        }
+        return false;
 	}
 
 	bool checklose(int[][] tab, int i, int j)
 	{
 		// check 3 enemi de suite
 		// check si enemi peut manger
+        return false;
 	}
 
 	void playbest(int[][] tab)
