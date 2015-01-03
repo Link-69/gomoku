@@ -75,7 +75,7 @@ public class ArbitreScript : MonoBehaviour
 		return ally;
 	}
 	
-	bool DoubleThree(int x, int y, int id)
+	public bool DoubleThree(int x, int y, int id)
 	{
 		int checker = 0;
 		

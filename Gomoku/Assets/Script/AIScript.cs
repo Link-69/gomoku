@@ -7,7 +7,7 @@ public class AIScript : MonoBehaviour {
 	public	int				id;
 	public	GameObject		pionCurseur;
 	public	GameObject		arbitre;
-	GameObject				newPion;
+	GameObject		newPion;
 	public	Text			TextWhoPlay;
 	public	Vector3			position;
 	public  int[][] 		tab;
@@ -39,6 +39,7 @@ public class AIScript : MonoBehaviour {
 	{
         int i = -1;
         int j = -1;
+        var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
 
 		//parcours du tableau
 		tab = arbitre.gameObject.GetComponent<ArbitreScript> ().tab;
@@ -52,9 +53,16 @@ public class AIScript : MonoBehaviour {
 					//check si on peut gg en pos i,j
 					if (checkwin(tab, i, j) == true)
 					{
-						arbitre.gameObject.GetComponent<ArbitreScript>().CheckPut(j, i, -1);
-						//poser le pion en i,j
-					}
+                        //poser le pion en i,j
+                        if ((get_arbitre.DTrois == true && get_arbitre.DoubleThree(j, i, -1) == false) || get_arbitre.DTrois == false)
+                        {
+                            newPion = Instantiate(get_arbitre.pion, new Vector3(j, i, 0), Quaternion.identity) as GameObject;
+                            newPion.gameObject.GetComponent<PionScript>().idPlayer = -1;
+                            newPion.gameObject.GetComponent<PionScript>().Arbitre = gameObject;
+                            newPion.gameObject.GetComponent<PionScript>().isPut = true;
+                            tab[j][i] = -1;
+                        }
+                    }
 				
 					//check pour ne pas perdre en pos i, j
 					else if (checklose(tab, i, j) == true)
