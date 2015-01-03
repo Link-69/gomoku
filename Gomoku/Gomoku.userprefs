@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\AIScript.cs">
     <Files>
+      <File FileName="Assets\Script\AIScript.cs" Line="87" Column="3" />
       <File FileName="Assets\Script\ArbitreScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\PlayerScript.cs" Line="23" Column="3" />
-      <File FileName="Assets\Script\PionScript.cs" Line="19" Column="4" />
+      <File FileName="Assets\Script\PlayerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\PionScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\manageButtons.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\AIScript.cs" Line="46" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

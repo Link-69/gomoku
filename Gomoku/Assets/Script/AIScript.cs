@@ -35,7 +35,7 @@ public class AIScript : MonoBehaviour {
 		}
 	}
 
-	void IAmaker()
+	int IAmaker()
 	{
         int i = -1;
         int j = -1;
@@ -61,25 +61,43 @@ public class AIScript : MonoBehaviour {
                             newPion.gameObject.GetComponent<PionScript>().Arbitre = gameObject;
                             newPion.gameObject.GetComponent<PionScript>().isPut = true;
                             tab[j][i] = -1;
+							return 0;
                         }
                     }
 				
 					//check pour ne pas perdre en pos i, j
 					else if (checklose(tab, i, j) == true)
 					{
-						arbitre.gameObject.GetComponent<ArbitreScript>().CheckPut(j, i, -1);
 						//poser le pion en i,j
+						if ((get_arbitre.DTrois == true && get_arbitre.DoubleThree(j, i, -1) == false) || get_arbitre.DTrois == false)
+						{
+							newPion = Instantiate(get_arbitre.pion, new Vector3(j, i, 0), Quaternion.identity) as GameObject;
+							newPion.gameObject.GetComponent<PionScript>().idPlayer = -1;
+							newPion.gameObject.GetComponent<PionScript>().Arbitre = gameObject;
+							newPion.gameObject.GetComponent<PionScript>().isPut = true;
+							tab[j][i] = -1;
+							return 0;
+						}
 					}
 			
 					//sinon check si le coup est intérressant 
-					else
-					{
+					//else
+					//{
+					//	if ((get_arbitre.DTrois == true && get_arbitre.DoubleThree(j, i, -1) == false) || get_arbitre.DTrois == false)
+					//	{
+					//		newPion = Instantiate(get_arbitre.pion, new Vector3(j, i, 0), Quaternion.identity) as GameObject;
+					//		newPion.gameObject.GetComponent<PionScript>().idPlayer = -1;
+					//		newPion.gameObject.GetComponent<PionScript>().Arbitre = gameObject;
+						//newPion.gameObject.GetComponent<PionScript>().isPut = true;
+						//	tab[j][i] = -1;
+						//	return 0;
+						//}
 						//trouver le meilleur coup et poser
-						playbest(tab);
+						//playbest(tab);
 					}
 				}
 			}
-		}
+		return(1);
 	}
 
 	bool checkwin(int[][] tab, int i, int j)
@@ -105,21 +123,21 @@ public class AIScript : MonoBehaviour {
 		var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
 
 		// check 3 enemi de suite
-		if (get_arbitre.CheckLineFive (j, i, j - 4, i, 1, 1) == 3)
+		if (get_arbitre.CheckLineFive (j, i, j - 2, i, 1, 1) == 3)
 			return true;
-		else if (get_arbitre.CheckLineFive (j, i, j - 4, i + 4, 1, 1) == 3)
+		else if (get_arbitre.CheckLineFive (j, i, j - 2, i + 2, 1, 1) == 3)
 			return true;
-		else if (get_arbitre.CheckLineFive (j, i, j, i + 4, 1, 1) == 3)
+		else if (get_arbitre.CheckLineFive (j, i, j, i + 2, 1, 1) == 3)
 			return true;
-		else if (get_arbitre.CheckLineFive (j, i, j + 4, i + 4, 1, 1) == 3)
+		else if (get_arbitre.CheckLineFive (j, i, j + 2, i + 2, 1, 1) == 3)
 			return true;
-		else if (get_arbitre.CheckLineFive (j, i, j +4, i, 1, 1) == 3)
+		else if (get_arbitre.CheckLineFive (j, i, j +2, i, 1, 1) == 3)
 			return true;
-		else if (get_arbitre.CheckLineFive (j, i, j + 4, i - 4, 1, 1) == 3)
+		else if (get_arbitre.CheckLineFive (j, i, j + 2, i - 2, 1, 1) == 3)
 			return true;
-		else if (get_arbitre.CheckLineFive (j, i, j, i - 4, 1, 1) == 3)
+		else if (get_arbitre.CheckLineFive (j, i, j, i - 2, 1, 1) == 3)
 			return true;
-		else if (get_arbitre.CheckLineFive (j, i, j - 4, i - 4, 1, 1) == 3)
+		else if (get_arbitre.CheckLineFive (j, i, j - 2, i - 2, 1, 1) == 3)
 			return true;
 
 		// check si enemi peut manger
