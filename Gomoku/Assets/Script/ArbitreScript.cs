@@ -229,7 +229,7 @@ public class ArbitreScript : MonoBehaviour
 		return false;
 	}
 
-	int CheckLineFive(int x1, int y1, int x2, int y2, int id, int incr)
+	public int CheckLineFive(int x1, int y1, int x2, int y2, int id, int incr)
 	{
 		if (x2 == x1 && y2 == y1)
 			return (incr);
@@ -250,7 +250,7 @@ public class ArbitreScript : MonoBehaviour
 		return (CheckLineFive(x1, y1, x2, y2, id, incr + 1));
 	}
 
-	bool CheckFive(int x, int y, int id)
+	public bool CheckFive(int x, int y, int id)
 	{
 		if (CheckLineFive (x, y, x - 4, y, id, 1) == 5)
 			return true;

@@ -52,12 +52,14 @@ public class AIScript : MonoBehaviour {
 					//check si on peut gg en pos i,j
 					if (checkwin(tab, i, j) == true)
 					{
+						arbitre.gameObject.GetComponent<ArbitreScript>().CheckPut(j, i, -1);
 						//poser le pion en i,j
 					}
 				
 					//check pour ne pas perdre en pos i, j
 					else if (checklose(tab, i, j) == true)
 					{
+						arbitre.gameObject.GetComponent<ArbitreScript>().CheckPut(j, i, -1);
 						//poser le pion en i,j
 					}
 			
@@ -74,9 +76,13 @@ public class AIScript : MonoBehaviour {
 
 	bool checkwin(int[][] tab, int i, int j)
 	{
+		var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
+
 		// check 5 de suite
+		if (get_arbitre.CheckFive(j, i, -1) == true)
+				return true;
+
 		// check manger 10
-        var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
         if (get_arbitre.nbEatPlayer2 == 8)
         {
             get_arbitre.VerifEaten(j, i, -1);
@@ -88,7 +94,26 @@ public class AIScript : MonoBehaviour {
 
 	bool checklose(int[][] tab, int i, int j)
 	{
+		var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
+
 		// check 3 enemi de suite
+		if (get_arbitre.CheckLineFive (j, i, j - 4, i, 1, 1) == 3)
+			return true;
+		else if (get_arbitre.CheckLineFive (j, i, j - 4, i + 4, 1, 1) == 3)
+			return true;
+		else if (get_arbitre.CheckLineFive (j, i, j, i + 4, 1, 1) == 3)
+			return true;
+		else if (get_arbitre.CheckLineFive (j, i, j + 4, i + 4, 1, 1) == 3)
+			return true;
+		else if (get_arbitre.CheckLineFive (j, i, j +4, i, 1, 1) == 3)
+			return true;
+		else if (get_arbitre.CheckLineFive (j, i, j + 4, i - 4, 1, 1) == 3)
+			return true;
+		else if (get_arbitre.CheckLineFive (j, i, j, i - 4, 1, 1) == 3)
+			return true;
+		else if (get_arbitre.CheckLineFive (j, i, j - 4, i - 4, 1, 1) == 3)
+			return true;
+
 		// check si enemi peut manger
         return false;
 	}
