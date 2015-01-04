@@ -62,7 +62,7 @@ public class AIScript : MonoBehaviour
             j = -1;
             while (++j < 19)
             {
-                if (tab[i][j] == 0)
+                if (tab[j][i] == 0)
                 {
                     //check si on peut gg en pos i,j
                     if (checkwin(tab, i, j) == true)
@@ -165,6 +165,7 @@ public class AIScript : MonoBehaviour
             return true;
 
         // check si enemi peut manger
+
         return false;
     }
 

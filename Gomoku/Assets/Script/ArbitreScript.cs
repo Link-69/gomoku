@@ -93,7 +93,7 @@ public class ArbitreScript : MonoBehaviour
             return true;
     }
 
-    bool CheckLineEat(int x1, int y1, int x2, int y2, int id)
+    public bool CheckLineEat(int x1, int y1, int x2, int y2, int id)
     {
         int xsave = -1;
         int ysave = -1;
