@@ -37,12 +37,14 @@ public class AIScript : MonoBehaviour
                 newPion.gameObject.GetComponent<PionScript>().dontTouchId = true;
                 newPion.gameObject.GetComponent<PionScript>().Arbitre = arbitre;
                 //IAmaker();
-                Debug.Log("coucou x = " + j + " y = " + i);
+                
+                Debug.Log("coucou j = " + j + " i = " + i);
                 newPion2 = Instantiate(get_arbitre.pion, new Vector3(i, j, 0), Quaternion.identity) as GameObject;
                 newPion2.gameObject.GetComponent<PionScript>().idPlayer = -1;
                 newPion2.gameObject.GetComponent<PionScript>().Arbitre = arbitre;
                 newPion2.gameObject.GetComponent<PionScript>().isPut = true;
-                //tab[j][i] = -1;
+                tab = arbitre.gameObject.GetComponent<ArbitreScript>().tab;
+                tab[j][i] = -1;
             }
         }
     }
