@@ -124,6 +124,27 @@ public class AIScript : MonoBehaviour
         return (1);
     }
 
+    bool dontGetHit(int i, int j)
+    {
+        if (j > 1 && j < 18 && tab[j - 1][i] == -1 && tab[j - 2][i] == 1 && tab[j + 1][i] == 0) // pc--
+            return (false);
+        else if (j > 0 && j < 17 && tab[j + 1][i] == -1 && tab[j + 2][i] == 1 && tab[j - 1][i] == 0) // --cp
+            return (false);
+        else if (i > 1 && i < 18 && tab[j][i - 1] == -1 && tab[j][i - 2] == 1 && tab[j][i + 1] == 0) // pc--
+            return (false);
+        else if (i > 0 && i < 17 && tab[j][i + 1] == -1 && tab[j][i + 2] == 1 && tab[j][i - 1] == 0) // --cp
+            return (false);
+        else if (j > 0 && j < 17 && tab[j + 1][i] == -1 && tab[j - 1][i] == 1 && tab[j + 2][i] == 0) // p-c-
+            return (false);
+        else if (j > 1 && j < 18 && tab[j - 1][i] == -1 && tab[j + 1][i] == 1 && tab[j - 2][i] == 0) // -c-p
+            return (false);
+        else if (i > 0 && i < 17 && tab[j][i + 1] == -1 && tab[j][i - 1] == 1 && tab[j][i + 2] == 0) // p-c-
+            return (false);
+        else if (i > 1 && i < 18 && tab[j][i - 1] == -1 && tab[j][i + 1] == 1 && tab[j][i - 2] == 0) // -c-p
+            return (false);
+        return (true);
+    }
+
     bool checkwin(int[][] tab, int i, int j)
     {
         var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
