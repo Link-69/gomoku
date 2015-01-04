@@ -75,6 +75,7 @@ public class AIScript : MonoBehaviour
                             newPion2.gameObject.GetComponent<PionScript>().Arbitre = arbitre;
                             newPion2.gameObject.GetComponent<PionScript>().isPut = true;
                             tab[j][i] = -1;
+							arbitre.gameObject.GetComponent<ArbitreScript>().CheckVictory(j, i, -1);
                             return 0;
                         }
                     }
@@ -103,18 +104,21 @@ public class AIScript : MonoBehaviour
             j = -1;
             while (++j < 19)
             {
-                if ((get_arbitre.DTrois == true && get_arbitre.DoubleThree(j, i, -1) == false) || get_arbitre.DTrois == false)
-                {
-                    if (tab[i][j] == 0)
-                    {
-                        newPion2 = Instantiate(get_arbitre.pion, new Vector3(j, i, 0), Quaternion.identity) as GameObject;
-                        newPion2.gameObject.GetComponent<PionScript>().idPlayer = -1;
-                        newPion2.gameObject.GetComponent<PionScript>().Arbitre = arbitre;
-                        newPion2.gameObject.GetComponent<PionScript>().isPut = true;
-                        tab[j][i] = -1;
-                        return 0;
-                    }
-                }
+				if (tab[j][i] == 0)
+				{
+                	if ((get_arbitre.DTrois == true && get_arbitre.DoubleThree(j, i, -1) == false) || get_arbitre.DTrois == false)
+                	{
+                    	if (tab[i][j] == 0)
+                    	{
+                      	  newPion2 = Instantiate(get_arbitre.pion, new Vector3(j, i, 0), Quaternion.identity) as GameObject;
+                      	  newPion2.gameObject.GetComponent<PionScript>().idPlayer = -1;
+                      	  newPion2.gameObject.GetComponent<PionScript>().Arbitre = arbitre;
+                      	  newPion2.gameObject.GetComponent<PionScript>().isPut = true;
+                     	   tab[j][i] = -1;
+                     	   return 0;
+                    	}
+                	}
+				}
             }
         }
         return (1);
