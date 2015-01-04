@@ -1,20 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\AIScript.cs">
     <Files>
-      <File FileName="Assets\Script\AIScript.cs" Line="83" Column="59" />
+      <File FileName="Assets\Script\AIScript.cs" Line="15" Column="24" />
       <File FileName="Assets\Script\ArbitreScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\PlayerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\PionScript.cs" Line="20" Column="1" />
+      <File FileName="Assets\Script\PionScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\manageButtons.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Tiko\Desktop\gomoku\gomoku\Gomoku\Assets\Script\AIScript.cs" line="77" />
-      <Breakpoint file="C:\Users\Tiko\Desktop\gomoku\gomoku\Gomoku\Assets\Script\AIScript.cs" line="117" />
-      <Breakpoint file="C:\Users\Tiko\Desktop\gomoku\gomoku\Gomoku\Assets\Script\AIScript.cs" line="93" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
