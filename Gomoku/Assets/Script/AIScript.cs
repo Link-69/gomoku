@@ -23,6 +23,10 @@ public class AIScript : MonoBehaviour {
 	
 	void Update ()
 	{
+		var get_arbitre = arbitre.gameObject.GetComponent<ArbitreScript>();
+		int i = 2;
+		int j = 2;
+
 		if (Input.GetMouseButtonDown (0))
 		{
 			if (arbitre.gameObject.GetComponent<ArbitreScript>().CheckPut ((int)newPion.transform.position.x, (int)newPion.transform.position.y, id))
@@ -30,7 +34,12 @@ public class AIScript : MonoBehaviour {
 					newPion.gameObject.GetComponent<PionScript> ().idPlayer = 1;
 					newPion.gameObject.GetComponent<PionScript> ().dontTouchId = true;
 					newPion.gameObject.GetComponent<PionScript> ().Arbitre = arbitre;
-					IAmaker();
+					//IAmaker();
+					newPion = Instantiate(get_arbitre.pion, new Vector3(i, j, 0), Quaternion.identity) as GameObject;
+					newPion.gameObject.GetComponent<PionScript>().idPlayer = -1;
+					newPion.gameObject.GetComponent<PionScript>().Arbitre = gameObject;
+					newPion.gameObject.GetComponent<PionScript>().isPut = true;
+					//tab[j][i] = -1;
 				}
 		}
 	}
@@ -79,24 +88,26 @@ public class AIScript : MonoBehaviour {
 							return 0;
 						}
 					}
-			
-					//sinon check si le coup est intérressant 
-					//else
-					//{
-					//	if ((get_arbitre.DTrois == true && get_arbitre.DoubleThree(j, i, -1) == false) || get_arbitre.DTrois == false)
-					//	{
-					//		newPion = Instantiate(get_arbitre.pion, new Vector3(j, i, 0), Quaternion.identity) as GameObject;
-					//		newPion.gameObject.GetComponent<PionScript>().idPlayer = -1;
-					//		newPion.gameObject.GetComponent<PionScript>().Arbitre = gameObject;
-						//newPion.gameObject.GetComponent<PionScript>().isPut = true;
-						//	tab[j][i] = -1;
-						//	return 0;
-						//}
-						//trouver le meilleur coup et poser
-						//playbest(tab);
-					}
 				}
 			}
+		}
+		i = -1;
+
+		while (++i < 19) {
+			j = -1;		
+			while (++j < 19)
+			{
+				if ((get_arbitre.DTrois == true && get_arbitre.DoubleThree(j, i, -1) == false) || get_arbitre.DTrois == false)
+				{
+					newPion = Instantiate(get_arbitre.pion, new Vector3(j, i, 0), Quaternion.identity) as GameObject;
+					newPion.gameObject.GetComponent<PionScript>().idPlayer = -1;
+					newPion.gameObject.GetComponent<PionScript>().Arbitre = gameObject;
+					newPion.gameObject.GetComponent<PionScript>().isPut = true;
+					tab[j][i] = -1;
+					return 0;
+				}
+			}
+		}
 		return(1);
 	}
 
